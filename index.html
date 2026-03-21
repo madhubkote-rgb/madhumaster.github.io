@@ -8,29 +8,26 @@
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             display: flex;
-            background: #f8fafc;
+            background: linear-gradient(120deg, #f8fafc, #eef2ff);
             color: #0f172a;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        body.fade-in {
-            opacity: 1;
+            overflow-x: hidden;
         }
 
         /* SIDEBAR */
         .sidebar {
-            width: 230px;
+            width: 240px;
             height: 100vh;
-            background: white;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(12px);
             padding: 25px;
             border-right: 1px solid #e2e8f0;
             position: fixed;
         }
 
         .sidebar h2 {
+            font-size: 22px;
             margin-bottom: 30px;
-            font-size: 20px;
+            color: #2563eb;
         }
 
         .menu {
@@ -40,45 +37,56 @@
 
         .menu li {
             padding: 12px;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             margin-bottom: 6px;
-            transition: 0.2s;
+            transition: 0.3s;
         }
 
         .menu li:hover {
-            background: #f1f5f9;
+            background: #e0f2fe;
+            transform: translateX(5px);
         }
 
         .active {
-            background: #e0f2fe;
-            color: #0369a1;
+            background: #dbeafe;
+            font-weight: 600;
         }
 
         /* MAIN */
         .main {
-            margin-left: 250px;
+            margin-left: 260px;
             padding: 60px;
             width: 100%;
             max-width: 1000px;
         }
 
+        /* SECTIONS */
         .section {
             display: none;
+            animation: fadeIn 0.5s ease;
         }
 
         #home {
             display: block;
         }
 
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(10px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
         h1 {
-            font-size: 48px;
+            font-size: 50px;
             margin-bottom: 10px;
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         h3 {
             margin-top: 40px;
-            font-size: 22px;
+            font-size: 24px;
         }
 
         p {
@@ -87,17 +95,18 @@
 
         /* CARDS */
         .card {
-            background: white;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(10px);
             padding: 25px;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.3);
             margin-top: 20px;
             transition: 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
         ul {
@@ -109,16 +118,16 @@
             display: inline-block;
             margin-top: 20px;
             padding: 12px 20px;
-            background: #2563eb;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
             color: white;
-            border-radius: 8px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 500;
             transition: 0.3s;
         }
 
         .resume-btn:hover {
-            background: #1d4ed8;
+            transform: scale(1.05);
         }
 
         /* CONTACT */
@@ -140,8 +149,21 @@
             text-decoration: none;
         }
 
-        a:hover {
-            text-decoration: underline;
+        /* TOAST */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #22c55e;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .show {
+            opacity: 1;
         }
 
     </style>
@@ -171,15 +193,13 @@
 
     <div class="card">
         <ul>
-            <li>SOC Analyst with hands-on experience in SIEM monitoring and incident investigation</li>
-            <li>Experienced in Splunk Enterprise / ES and Microsoft Sentinel</li>
-            <li>Skilled in phishing, malware, brute-force, and threat detection</li>
-            <li>Strong in IOC analysis and threat intelligence enrichment</li>
-            <li>Hands-on MITRE ATT&CK and Cyber Kill Chain mapping</li>
-            <li>Experienced in Windows, Linux, and firewall log analysis</li>
-            <li>Built SPL queries and dashboards for monitoring</li>
-            <li>Strong networking fundamentals (TCP/IP, DNS, HTTP/S)</li>
-            <li>Experience in SOC documentation, SOPs, and compliance</li>
+            <li>Hands-on SIEM monitoring & incident investigation</li>
+            <li>Splunk Enterprise / ES & Microsoft Sentinel expertise</li>
+            <li>Phishing, malware & threat detection analysis</li>
+            <li>IOC enrichment and threat intelligence</li>
+            <li>MITRE ATT&CK & Cyber Kill Chain mapping</li>
+            <li>Windows, Linux & Firewall log analysis</li>
+            <li>Dashboard creation & SPL queries</li>
         </ul>
     </div>
 </div>
@@ -188,10 +208,7 @@
 <div id="skills" class="section">
     <h3>🛠 Skills</h3>
     <div class="card">
-        <p>Splunk Enterprise / ES</p>
-        <p>Microsoft Sentinel</p>
-        <p>Log Analysis (Windows, Linux, Firewall)</p>
-        <p>Incident Response & Threat Detection</p>
+        <p>Splunk | Sentinel | Log Analysis | Incident Response</p>
     </div>
 </div>
 
@@ -200,33 +217,23 @@
     <h3>📂 Projects</h3>
     <div class="card">
         <p><strong>SIEM Lab Implementation</strong></p>
-        <p>Integrated Windows & Linux logs using Universal Forwarder and Syslog</p>
-        <p>Configured inputs.conf & outputs.conf</p>
-        <p>Performed troubleshooting and validation</p>
+        <p>Integrated logs and built monitoring pipelines</p>
     </div>
 </div>
 
 <!-- EXPERIENCE -->
 <div id="experience" class="section">
     <h3>💼 Experience</h3>
-
     <div class="card">
-        <p><strong>Goldman Sachs – Security Engineering Analyst</strong></p>
-        <p>Handled SIEM alerts, triage, phishing & malware investigations</p>
-    </div>
-
-    <div class="card">
-        <p><strong>Senior Technical Engineer</strong></p>
-        <p>Worked in 24x7 SOC environment handling alerts</p>
+        <p><strong>Goldman Sachs</strong></p>
+        <p>SIEM monitoring, threat analysis, incident response</p>
     </div>
 </div>
 
 <!-- RESUME -->
 <div id="resume" class="section">
     <h3>📄 Resume</h3>
-
     <div class="card">
-        <p>Download my latest resume:</p>
         <a href="Madhu_SOC_Analyst_Resume.pdf" download class="resume-btn">
             ⬇ Download Resume
         </a>
@@ -236,11 +243,10 @@
 <!-- CONTACT -->
 <div id="contact" class="section">
     <h3>📞 Contact</h3>
-
     <div class="card">
         <div class="contact-item">
             <span id="email">madhubkote@gmail.com</span>
-            <button onclick="copyText('email', this)">📋</button>
+            <button onclick="copyText('email')">📋</button>
         </div>
 
         <div class="contact-item">
@@ -253,26 +259,26 @@
 
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    document.body.classList.add("fade-in");
-});
+<div id="toast" class="toast">Copied!</div>
 
-function showSection(sectionId, el) {
-    document.querySelectorAll(".section").forEach(sec => sec.style.display = "none");
-    document.getElementById(sectionId).style.display = "block";
+<script>
+function showSection(id, el) {
+    document.querySelectorAll(".section").forEach(s => s.style.display="none");
+    document.getElementById(id).style.display="block";
 
     document.querySelectorAll(".menu li").forEach(li => li.classList.remove("active"));
     el.classList.add("active");
 }
 
-function copyText(id, btn) {
+function copyText(id) {
     const text = document.getElementById(id).innerText;
     navigator.clipboard.writeText(text);
 
-    btn.innerText = "✓";
+    const toast = document.getElementById("toast");
+    toast.classList.add("show");
+
     setTimeout(() => {
-        btn.innerText = "📋";
+        toast.classList.remove("show");
     }, 1500);
 }
 </script>
