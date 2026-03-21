@@ -8,23 +8,29 @@
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             display: flex;
-            background: #f9fafb;
-            color: #111827;
+            background: #f8fafc;
+            color: #0f172a;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.4s ease;
         }
 
         body.fade-in {
             opacity: 1;
         }
 
+        /* SIDEBAR */
         .sidebar {
-            width: 220px;
+            width: 230px;
             height: 100vh;
             background: white;
-            padding: 20px;
-            border-right: 1px solid #e5e7eb;
+            padding: 25px;
+            border-right: 1px solid #e2e8f0;
             position: fixed;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 30px;
+            font-size: 20px;
         }
 
         .menu {
@@ -33,14 +39,15 @@
         }
 
         .menu li {
-            padding: 10px;
+            padding: 12px;
             border-radius: 8px;
             cursor: pointer;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            transition: 0.2s;
         }
 
         .menu li:hover {
-            background: #f3f4f6;
+            background: #f1f5f9;
         }
 
         .active {
@@ -48,10 +55,12 @@
             color: #0369a1;
         }
 
+        /* MAIN */
         .main {
-            margin-left: 240px;
-            padding: 50px;
+            margin-left: 250px;
+            padding: 60px;
             width: 100%;
+            max-width: 1000px;
         }
 
         .section {
@@ -63,93 +72,121 @@
         }
 
         h1 {
-            font-size: 50px;
+            font-size: 48px;
+            margin-bottom: 10px;
         }
 
+        h3 {
+            margin-top: 40px;
+            font-size: 22px;
+        }
+
+        p {
+            color: #475569;
+        }
+
+        /* CARDS */
         .card {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #e5e7eb;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
             margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
         ul {
-            line-height: 1.8;
+            line-height: 1.9;
         }
 
+        /* BUTTON */
         .resume-btn {
             display: inline-block;
             margin-top: 20px;
-            padding: 10px 18px;
+            padding: 12px 20px;
             background: #2563eb;
             color: white;
             border-radius: 8px;
             text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
         }
 
+        .resume-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* CONTACT */
         .contact-item {
             display: flex;
             justify-content: space-between;
-            margin-top: 10px;
+            margin-top: 12px;
         }
 
         button {
             border: none;
             background: none;
             cursor: pointer;
+            font-size: 16px;
         }
 
         a {
             color: #2563eb;
             text-decoration: none;
         }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 
 <body>
 
-<!-- SIDEBAR -->
 <div class="sidebar">
     <h2>Madhu</h2>
 
     <ul class="menu">
-        <li onclick="showSection('home', this)" class="active">Home</li>
-        <li onclick="showSection('skills', this)">Skills</li>
-        <li onclick="showSection('projects', this)">Projects</li>
-        <li onclick="showSection('experience', this)">Experience</li>
-        <li onclick="showSection('resume', this)">Resume</li>
-        <li onclick="showSection('contact', this)">Contact</li>
+        <li onclick="showSection('home', this)" class="active">🏠 Home</li>
+        <li onclick="showSection('skills', this)">🛠 Skills</li>
+        <li onclick="showSection('projects', this)">📂 Projects</li>
+        <li onclick="showSection('experience', this)">💼 Experience</li>
+        <li onclick="showSection('resume', this)">📄 Resume</li>
+        <li onclick="showSection('contact', this)">📞 Contact</li>
     </ul>
 </div>
 
-<!-- MAIN -->
 <div class="main">
 
-<!-- HOME (UPDATED) -->
+<!-- HOME -->
 <div id="home" class="section">
     <h1>Hi, I'm Madhu 👋</h1>
     <p>SOC Analyst specializing in SIEM, threat detection, and incident response</p>
 
     <div class="card">
         <ul>
-            <li>SOC Analyst with hands-on experience in SIEM monitoring, alert triage, and incident investigation.</li>
-            <li>Experienced with Splunk Enterprise / ES and Microsoft Sentinel.</li>
-            <li>Skilled in analyzing phishing, malware, brute-force, and unauthorized access attacks.</li>
-            <li>Proficient in IOC analysis (IP, domain, hash) and threat intelligence enrichment.</li>
-            <li>Hands-on knowledge of MITRE ATT&CK framework and Cyber Kill Chain.</li>
-            <li>Strong understanding of SOC workflows, escalation processes, and incident response.</li>
-            <li>Experienced in log analysis across Windows, Linux, and firewall environments.</li>
-            <li>Built SPL queries and dashboards for monitoring and detection.</li>
-            <li>Strong networking fundamentals (TCP/IP, DNS, HTTP/S).</li>
-            <li>Experienced in documentation, SOP creation, and compliance reporting.</li>
+            <li>SOC Analyst with hands-on experience in SIEM monitoring and incident investigation</li>
+            <li>Experienced in Splunk Enterprise / ES and Microsoft Sentinel</li>
+            <li>Skilled in phishing, malware, brute-force, and threat detection</li>
+            <li>Strong in IOC analysis and threat intelligence enrichment</li>
+            <li>Hands-on MITRE ATT&CK and Cyber Kill Chain mapping</li>
+            <li>Experienced in Windows, Linux, and firewall log analysis</li>
+            <li>Built SPL queries and dashboards for monitoring</li>
+            <li>Strong networking fundamentals (TCP/IP, DNS, HTTP/S)</li>
+            <li>Experience in SOC documentation, SOPs, and compliance</li>
         </ul>
     </div>
 </div>
 
 <!-- SKILLS -->
 <div id="skills" class="section">
-    <h3>Skills</h3>
+    <h3>🛠 Skills</h3>
     <div class="card">
         <p>Splunk Enterprise / ES</p>
         <p>Microsoft Sentinel</p>
@@ -160,37 +197,36 @@
 
 <!-- PROJECTS -->
 <div id="projects" class="section">
-    <h3>Projects</h3>
+    <h3>📂 Projects</h3>
     <div class="card">
         <p><strong>SIEM Lab Implementation</strong></p>
-        <p>Integrated Windows & Linux logs using Universal Forwarder and Syslog.</p>
-        <p>Configured inputs.conf & outputs.conf.</p>
-        <p>Performed troubleshooting and log ingestion validation.</p>
+        <p>Integrated Windows & Linux logs using Universal Forwarder and Syslog</p>
+        <p>Configured inputs.conf & outputs.conf</p>
+        <p>Performed troubleshooting and validation</p>
     </div>
 </div>
 
 <!-- EXPERIENCE -->
 <div id="experience" class="section">
-    <h3>Experience</h3>
+    <h3>💼 Experience</h3>
 
     <div class="card">
         <p><strong>Goldman Sachs – Security Engineering Analyst</strong></p>
-        <p>Handled SIEM alerts, performed triage, and investigated incidents.</p>
+        <p>Handled SIEM alerts, triage, phishing & malware investigations</p>
     </div>
 
     <div class="card">
         <p><strong>Senior Technical Engineer</strong></p>
-        <p>Worked in 24x7 SOC operations handling alerts.</p>
+        <p>Worked in 24x7 SOC environment handling alerts</p>
     </div>
 </div>
 
 <!-- RESUME -->
 <div id="resume" class="section">
-    <h3>Resume</h3>
+    <h3>📄 Resume</h3>
 
     <div class="card">
         <p>Download my latest resume:</p>
-
         <a href="Madhu_SOC_Analyst_Resume.pdf" download class="resume-btn">
             ⬇ Download Resume
         </a>
@@ -199,7 +235,7 @@
 
 <!-- CONTACT -->
 <div id="contact" class="section">
-    <h3>Contact</h3>
+    <h3>📞 Contact</h3>
 
     <div class="card">
         <div class="contact-item">
