@@ -6,15 +6,48 @@
     <style>
         body {
             margin: 0;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            display: flex;
             background: #f9fafb;
             color: #111827;
         }
 
-        .container {
+        /* 🔷 SIDEBAR (same as index.html) */
+        .sidebar {
+            width: 220px;
+            height: 100vh;
+            background: white;
+            padding: 20px;
+            border-right: 1px solid #e5e7eb;
+            position: fixed;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu li {
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
+
+        .menu li:hover {
+            background: #f3f4f6;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        /* 🔷 MAIN */
+        .main {
+            margin-left: 240px;
             padding: 50px;
-            max-width: 900px;
-            margin: auto;
+            width: 100%;
         }
 
         h1 {
@@ -30,67 +63,49 @@
             margin-bottom: 20px;
         }
 
-        .card h3 {
-            margin-bottom: 10px;
-        }
-
         .card p {
             color: #6b7280;
-            font-size: 14px;
-            line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-            color: #2563eb;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- 🔷 SIDEBAR -->
+<div class="sidebar">
+    <h2>Madhu</h2>
+
+    <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li>About</li>
+        <li>Projects</li>
+        <li><a href="experience.html">Experience</a></li>
+        <li>Contact</li>
+    </ul>
+</div>
+
+<!-- 🔷 MAIN CONTENT -->
+<div class="main">
 
     <h1>Experience</h1>
 
     <div class="card">
         <h3>Goldman Sachs – Security Engineering Analyst</h3>
-        <p>
-            Monitored and analyzed security alerts from SIEM and EDR platforms to identify potential threats.
-            Performed alert triage and validation to distinguish true positives from false positives.
-        </p>
-        <p>
-            Investigated phishing, malware, brute-force attacks, and unauthorized access attempts.
-            Conducted IOC enrichment using threat intelligence sources.
-        </p>
-        <p>
-            Escalated confirmed incidents and assisted in response actions such as account lockouts,
-            IP blocking, and endpoint isolation.
-        </p>
+        <p>Monitored SIEM & EDR alerts and performed alert triage.</p>
+        <p>Investigated phishing, malware, brute-force, and unauthorized access incidents.</p>
+        <p>Performed IOC enrichment using threat intelligence.</p>
     </div>
 
     <div class="card">
         <h3>Goldman Sachs – Senior Technical Engineer</h3>
-        <p>
-            Worked in 24x7 SOC operations handling SIEM alerts and performing initial investigations.
-            Followed SOC playbooks and escalated incidents to L2 teams.
-        </p>
+        <p>Worked in 24x7 SOC operations handling alerts and investigations.</p>
     </div>
 
     <div class="card">
         <h3>Accenture & Mercedes-Benz</h3>
-        <p>
-            Provided L1/L2 support for enterprise systems, troubleshooting issues and maintaining uptime.
-            Worked on system configurations, security practices, and user support.
-        </p>
+        <p>Handled enterprise support, troubleshooting, and system configurations.</p>
     </div>
-
-    <br>
-    <a href="index.html">⬅ Back to Home</a>
 
 </div>
 
