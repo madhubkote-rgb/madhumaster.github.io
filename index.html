@@ -1,46 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Madhu | SOC Analyst</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            display: flex;
+            background: #f9fafb;
+            color: #111827;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.fade-in {
+            opacity: 1;
+        }
+
+        /* 🔷 SIDEBAR */
+        .sidebar {
+            width: 220px;
+            height: 100vh;
+            background: white;
+            padding: 20px;
+            border-right: 1px solid #e5e7eb;
+            position: fixed;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu li {
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+
+        .menu li:hover {
+            background: #f3f4f6;
+        }
+
+        .active {
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+
+        /* 🔷 MAIN */
+        .main {
+            margin-left: 240px;
+            padding: 50px;
+            width: 100%;
+        }
+
+        /* 🔷 SECTIONS */
+        .section {
+            display: none;
+        }
+
+        #home {
+            display: block;
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+        h3 {
+            margin-top: 30px;
+        }
+
+        /* 🔷 BUTTON */
+        .resume-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 18px;
+            background: #2563eb;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .resume-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* 🔷 CARDS */
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            margin-top: 20px;
+        }
+
+        /* 🔷 CONTACT */
+        .contact-item {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Passionate developer with experience in various technologies...</p>
-    </section>
-    <section id="projects">
-        <h2>My Projects</h2>
-        <ul>
-            <li><a href="project1.html">Project 1</a></li>
-            <li><a href="project2.html">Project 2</a></li>
-            <li><a href="project3.html">Project 3</a></li>
-        </ul>
-    </section>
-    <section id="resume">
-        <h2>Resume</h2>
-        <p>Here is a summary of my experience and skills...</p>
-        <a href="resume.pdf" target="_blank">Download My Resume</a>
-    </section>
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:me@example.com">me@example.com</a></p>
-    </section>
-    <footer>
-        <p>&copy; 2026 My Portfolio. All rights reserved.</p>
-    </footer>
+
+<!-- 🔷 SIDEBAR -->
+<div class="sidebar">
+    <h2>Madhu</h2>
+
+    <ul class="menu">
+        <li onclick="showSection('home', this)" class="active">Home</li>
+        <li onclick="showSection('skills', this)">Skills</li>
+        <li onclick="showSection('projects', this)">Projects</li>
+        <li onclick="showSection('experience', this)">Experience</li>
+        <li onclick="showSection('contact', this)">Contact</li>
+    </ul>
+</div>
+
+<!-- 🔷 MAIN -->
+<div class="main">
+
+    <!-- HOME -->
+    <div id="home" class="section">
+        <h1>Hi, I'm Madhu 👋</h1>
+        <p>SOC Analyst specializing in SIEM, threat detection, and incident response</p>
+
+        <a href="Madhu_SOC_Analyst_Resume.pdf" download class="resume-btn">
+            ⬇ Download Resume
+        </a>
+    </div>
+
+    <!-- SKILLS -->
+    <div id="skills" class="section">
+        <h3>Skills</h3>
+        <div class="card">
+            <p>Splunk Enterprise / ES</p>
+            <p>Microsoft Sentinel</p>
+            <p>Windows, Linux, Firewall Log Analysis</p>
+            <p>Incident Response & Threat Detection</p>
+        </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div id="projects" class="section">
+        <h3>Projects</h3>
+        <div class="card">
+            <p><strong>SIEM Lab Implementation</strong></p>
+            <p>Integrated Windows & Linux logs using Universal Forwarder and Syslog.</p>
+            <p>Configured inputs.conf & outputs.conf.</p>
+            <p>Performed end-to-end troubleshooting.</p>
+        </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div id="experience" class="section">
+        <h3>Experience</h3>
+
+        <div class="card">
+            <p><strong>Goldman Sachs – Security Engineering Analyst</strong></p>
+            <p>Monitored SIEM & EDR alerts and performed alert triage.</p>
+            <p>Investigated phishing, malware, brute-force attacks.</p>
+            <p>Performed IOC enrichment and threat analysis.</p>
+        </div>
+
+        <div class="card">
+            <p><strong>Senior Technical Engineer</strong></p>
+            <p>Worked in 24x7 SOC operations handling alerts and incidents.</p>
+        </div>
+
+        <div class="card">
+            <p><strong>Accenture & Mercedes-Benz</strong></p>
+            <p>Handled enterprise support and system troubleshooting.</p>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div id="contact" class="section">
+        <h3>Contact</h3>
+
+        <div class="card">
+
+            <div class="contact-item">
+                <span id="email">madhubkote@gmail.com</span>
+                <button onclick="copyText('email', this)">📋</button>
+            </div>
+
+            <div class="contact-item">
+                <a href="https://www.linkedin.com/in/madusudana-bs-32b8a2244/" target="_blank">
+                    LinkedIn Profile
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- 🔷 SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("fade-in");
+});
+
+function showSection(sectionId, el) {
+    document.querySelectorAll(".section").forEach(sec => sec.style.display = "none");
+    document.getElementById(sectionId).style.display = "block";
+
+    document.querySelectorAll(".menu li").forEach(li => li.classList.remove("active"));
+    el.classList.add("active");
+}
+
+function copyText(id, btn) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text);
+
+    btn.innerText = "✓";
+    setTimeout(() => {
+        btn.innerText = "📋";
+    }, 1500);
+}
+</script>
+
 </body>
 </html>
