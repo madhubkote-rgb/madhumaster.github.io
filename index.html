@@ -1,260 +1,233 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Madhu | SOC Analyst</title>
+<title>Madhu | SOC Analyst</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            display: flex;
-            background: linear-gradient(120deg, #f8fafc, #eef2ff);
-            color: #0f172a;
-            overflow-x: hidden;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    display: flex;
+    background: linear-gradient(120deg, #f8fafc, #eef2ff);
+    color: #0f172a;
+}
 
-        /* SIDEBAR */
-        .sidebar {
-            width: 240px;
-            height: 100vh;
-            background: rgba(255,255,255,0.7);
-            backdrop-filter: blur(12px);
-            padding: 25px;
-            border-right: 1px solid #e2e8f0;
-            position: fixed;
-        }
+/* SIDEBAR */
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    position: fixed;
+}
 
-        .sidebar h2 {
-            font-size: 22px;
-            margin-bottom: 30px;
-            color: #2563eb;
-        }
+.menu li {
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
 
-        .menu {
-            list-style: none;
-            padding: 0;
-        }
+.menu li:hover { background: #e0f2fe; }
+.active { background: #dbeafe; }
 
-        .menu li {
-            padding: 12px;
-            border-radius: 10px;
-            cursor: pointer;
-            margin-bottom: 6px;
-            transition: 0.3s;
-        }
+/* MAIN */
+.main {
+    margin-left: 260px;
+    padding: 60px;
+    max-width: 1000px;
+}
 
-        .menu li:hover {
-            background: #e0f2fe;
-            transform: translateX(5px);
-        }
+/* CARDS */
+.card {
+    background: rgba(255,255,255,0.7);
+    padding: 25px;
+    border-radius: 16px;
+    margin-top: 20px;
+}
 
-        .active {
-            background: #dbeafe;
-            font-weight: 600;
-        }
+h1 {
+    font-size: 48px;
+    background: linear-gradient(90deg,#2563eb,#7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-        /* MAIN */
-        .main {
-            margin-left: 260px;
-            padding: 60px;
-            width: 100%;
-            max-width: 1000px;
-        }
+h3 { margin-top: 40px; }
 
-        /* SECTIONS */
-        .section {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
+ul { line-height: 1.9; }
 
-        #home {
-            display: block;
-        }
+/* BUTTON */
+.resume-btn {
+    padding: 12px 20px;
+    background: linear-gradient(135deg,#2563eb,#7c3aed);
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+}
 
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(10px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
+/* CONTACT */
+.contact-item {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+}
 
-        h1 {
-            font-size: 50px;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, #2563eb, #7c3aed);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #22c55e;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: 0.3s;
+}
+.show { opacity: 1; }
 
-        h3 {
-            margin-top: 40px;
-            font-size: 24px;
-        }
+.section { display: none; }
+#home { display: block; }
 
-        p {
-            color: #475569;
-        }
-
-        /* CARDS */
-        .card {
-            background: rgba(255,255,255,0.7);
-            backdrop-filter: blur(10px);
-            padding: 25px;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.3);
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-
-        ul {
-            line-height: 1.9;
-        }
-
-        /* BUTTON */
-        .resume-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 20px;
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            color: white;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        .resume-btn:hover {
-            transform: scale(1.05);
-        }
-
-        /* CONTACT */
-        .contact-item {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 12px;
-        }
-
-        button {
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-
-        /* TOAST */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #22c55e;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 8px;
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .show {
-            opacity: 1;
-        }
-
-    </style>
+</style>
 </head>
 
 <body>
 
 <div class="sidebar">
-    <h2>Madhu</h2>
-
-    <ul class="menu">
-        <li onclick="showSection('home', this)" class="active">🏠 Home</li>
-        <li onclick="showSection('skills', this)">🛠 Skills</li>
-        <li onclick="showSection('projects', this)">📂 Projects</li>
-        <li onclick="showSection('experience', this)">💼 Experience</li>
-        <li onclick="showSection('resume', this)">📄 Resume</li>
-        <li onclick="showSection('contact', this)">📞 Contact</li>
-    </ul>
+<h2>Madhu</h2>
+<ul class="menu">
+<li onclick="showSection('home',this)" class="active">🏠 Home</li>
+<li onclick="showSection('skills',this)">🛠 Skills</li>
+<li onclick="showSection('projects',this)">📂 Projects</li>
+<li onclick="showSection('experience',this)">💼 Experience</li>
+<li onclick="showSection('resume',this)">📄 Resume</li>
+<li onclick="showSection('contact',this)">📞 Contact</li>
+</ul>
 </div>
 
 <div class="main">
 
 <!-- HOME -->
 <div id="home" class="section">
-    <h1>Hi, I'm Madhu 👋</h1>
-    <p>SOC Analyst specializing in SIEM, threat detection, and incident response</p>
+<h1>Hi, I'm Madhu 👋</h1>
 
-    <div class="card">
-        <ul>
-            <li>Hands-on SIEM monitoring & incident investigation</li>
-            <li>Splunk Enterprise / ES & Microsoft Sentinel expertise</li>
-            <li>Phishing, malware & threat detection analysis</li>
-            <li>IOC enrichment and threat intelligence</li>
-            <li>MITRE ATT&CK & Cyber Kill Chain mapping</li>
-            <li>Windows, Linux & Firewall log analysis</li>
-            <li>Dashboard creation & SPL queries</li>
-        </ul>
-    </div>
+<div class="card">
+<p>
+SOC Analyst with 4+ years of experience in security operations, SIEM monitoring, and incident response across enterprise environments including Goldman Sachs. 
+Strong expertise in Splunk Enterprise, Microsoft Sentinel, and real-time threat detection. 
+Hands-on experience in analyzing phishing, malware, brute-force attacks, and access anomalies. 
+Skilled in IOC enrichment, MITRE ATT&CK mapping, and threat intelligence correlation. 
+Proven ability to automate SOC workflows, reducing manual effort and improving detection efficiency. 
+Experienced in IAM security, privileged access monitoring, and compliance-driven environments. 
+Strong foundation in networking, Linux systems, and enterprise security tools.
+</p>
+</div>
 </div>
 
 <!-- SKILLS -->
 <div id="skills" class="section">
-    <h3>🛠 Skills</h3>
-    <div class="card">
-        <p>Splunk | Sentinel | Log Analysis | Incident Response</p>
-    </div>
+<h3>🛠 Skills</h3>
+
+<div class="card">
+<h4>SIEM & Monitoring</h4>
+<ul>
+<li>Splunk Enterprise / ES (Log ingestion, SPL queries, dashboards)</li>
+<li>Microsoft Sentinel (Alert monitoring & investigation)</li>
+<li>Correlation rules & detection logic tuning</li>
+</ul>
+
+<h4>Threat Detection & Analysis</h4>
+<ul>
+<li>Phishing, Malware, Brute-force attack analysis</li>
+<li>IOC investigation (IP, Domain, Hash, URL)</li>
+<li>MITRE ATT&CK & Cyber Kill Chain mapping</li>
+</ul>
+
+<h4>Security Operations</h4>
+<ul>
+<li>Alert triage (True vs False positive validation)</li>
+<li>Incident response & escalation workflows</li>
+<li>SOC runbooks & documentation</li>
+</ul>
+
+<h4>Systems & Networking</h4>
+<ul>
+<li>Windows & Linux log analysis</li>
+<li>TCP/IP, DNS, DHCP, HTTP/S protocols</li>
+<li>Access control & privilege monitoring</li>
+</ul>
+</div>
 </div>
 
 <!-- PROJECTS -->
 <div id="projects" class="section">
-    <h3>📂 Projects</h3>
-    <div class="card">
-        <p><strong>SIEM Lab Implementation</strong></p>
-        <p>Integrated logs and built monitoring pipelines</p>
-    </div>
+<h3>📂 Projects</h3>
+
+<div class="card">
+<p><strong>SIEM Implementation Lab</strong></p>
+<ul>
+<li>Integrated Windows & Linux logs into Splunk using Universal Forwarder</li>
+<li>Configured inputs.conf & outputs.conf</li>
+<li>Enabled centralized monitoring and alert visibility</li>
+<li>Performed troubleshooting and log validation</li>
+</ul>
+</div>
 </div>
 
 <!-- EXPERIENCE -->
 <div id="experience" class="section">
-    <h3>💼 Experience</h3>
-    <div class="card">
-        <p><strong>Goldman Sachs</strong></p>
-        <p>SIEM monitoring, threat analysis, incident response</p>
-    </div>
+<h3>💼 Experience</h3>
+
+<div class="card">
+<p><strong>Goldman Sachs – Cybersecurity Analyst</strong></p>
+<ul>
+<li>Monitored privileged access and identified anomalous activities</li>
+<li>Performed alert triage and escalated validated incidents</li>
+<li>Automated security ticket closure reducing manual effort</li>
+<li>Improved detection by refining correlation rules</li>
+<li>Conducted IOC analysis and access risk investigations</li>
+</ul>
+</div>
+
+<div class="card">
+<p><strong>Senior Technical Engineer</strong></p>
+<ul>
+<li>Handled 24x7 SOC alerts and investigations</li>
+<li>Supported endpoint security and identity platforms</li>
+<li>Performed patching, compliance checks, and system hardening</li>
+</ul>
+</div>
 </div>
 
 <!-- RESUME -->
 <div id="resume" class="section">
-    <h3>📄 Resume</h3>
-    <div class="card">
-        <a href="Madhu_SOC_Analyst_Resume.pdf" download class="resume-btn">
-            ⬇ Download Resume
-        </a>
-    </div>
+<h3>📄 Resume</h3>
+<div class="card">
+<a href="Madhu_SOC_Analyst_Resume.pdf" download class="resume-btn">
+⬇ Download Resume
+</a>
+</div>
 </div>
 
 <!-- CONTACT -->
 <div id="contact" class="section">
-    <h3>📞 Contact</h3>
-    <div class="card">
-        <div class="contact-item">
-            <span id="email">madhubkote@gmail.com</span>
-            <button onclick="copyText('email')">📋</button>
-        </div>
+<h3>📞 Contact</h3>
+<div class="card">
 
-        <div class="contact-item">
-            <a href="https://www.linkedin.com/in/madusudana-bs-32b8a2244/" target="_blank">
-                LinkedIn Profile
-            </a>
-        </div>
-    </div>
+<div class="contact-item">
+<span id="email">madhubkote@gmail.com</span>
+<button onclick="copyText('email')">📋</button>
+</div>
+
+<div class="contact-item">
+<a href="https://www.linkedin.com/in/madusudana-bs-32b8a2244/" target="_blank">
+LinkedIn Profile
+</a>
+</div>
+
+</div>
 </div>
 
 </div>
@@ -262,24 +235,19 @@
 <div id="toast" class="toast">Copied!</div>
 
 <script>
-function showSection(id, el) {
-    document.querySelectorAll(".section").forEach(s => s.style.display="none");
-    document.getElementById(id).style.display="block";
+function showSection(id,el){
+document.querySelectorAll(".section").forEach(s=>s.style.display="none");
+document.getElementById(id).style.display="block";
 
-    document.querySelectorAll(".menu li").forEach(li => li.classList.remove("active"));
-    el.classList.add("active");
+document.querySelectorAll(".menu li").forEach(li=>li.classList.remove("active"));
+el.classList.add("active");
 }
 
-function copyText(id) {
-    const text = document.getElementById(id).innerText;
-    navigator.clipboard.writeText(text);
-
-    const toast = document.getElementById("toast");
-    toast.classList.add("show");
-
-    setTimeout(() => {
-        toast.classList.remove("show");
-    }, 1500);
+function copyText(id){
+navigator.clipboard.writeText(document.getElementById(id).innerText);
+let t=document.getElementById("toast");
+t.classList.add("show");
+setTimeout(()=>t.classList.remove("show"),1500);
 }
 </script>
 
