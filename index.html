@@ -22,6 +22,11 @@ body {
     position: fixed;
 }
 
+.menu {
+    list-style: none;
+    padding: 0;
+}
+
 .menu li {
     padding: 12px;
     cursor: pointer;
@@ -30,7 +35,7 @@ body {
 }
 
 .menu li:hover { background: #e0f2fe; }
-.active { background: #dbeafe; }
+.active { background: #dbeafe; font-weight: 600; }
 
 /* MAIN */
 .main {
@@ -45,6 +50,7 @@ body {
     padding: 25px;
     border-radius: 16px;
     margin-top: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
 h1 {
@@ -55,8 +61,14 @@ h1 {
 }
 
 h3 { margin-top: 40px; }
-
 ul { line-height: 1.9; }
+
+/* GRID */
+.home-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
 
 /* BUTTON */
 .resume-btn {
@@ -74,6 +86,7 @@ ul { line-height: 1.9; }
     margin-top: 12px;
 }
 
+/* TOAST */
 .toast {
     position: fixed;
     bottom: 30px;
@@ -95,6 +108,7 @@ ul { line-height: 1.9; }
 
 <body>
 
+<!-- SIDEBAR -->
 <div class="sidebar">
 <h2>Madhu</h2>
 <ul class="menu">
@@ -107,10 +121,12 @@ ul { line-height: 1.9; }
 </ul>
 </div>
 
+<!-- MAIN -->
 <div class="main">
 
 <!-- HOME -->
 <div id="home" class="section">
+
 <h1>Hi, I'm Madhu 👋</h1>
 
 <div class="card">
@@ -119,44 +135,48 @@ SOC Analyst with 4+ years of experience in security operations, SIEM monitoring,
 Strong expertise in Splunk Enterprise, Microsoft Sentinel, and real-time threat detection. 
 Hands-on experience in analyzing phishing, malware, brute-force attacks, and access anomalies. 
 Skilled in IOC enrichment, MITRE ATT&CK mapping, and threat intelligence correlation. 
-Proven ability to automate SOC workflows, reducing manual effort and improving detection efficiency. 
-Experienced in IAM security, privileged access monitoring, and compliance-driven environments. 
-Strong foundation in networking, Linux systems, and enterprise security tools.
+Proven ability to automate SOC workflows, reducing manual effort and improving detection efficiency.
 </p>
 </div>
+
+<div class="home-grid">
+
+<div class="card">
+<h3>🔍 Core Strengths</h3>
+<ul>
+<li>Real-time SIEM monitoring & alert triage</li>
+<li>Phishing, malware & brute-force detection</li>
+<li>IOC analysis (IP, Domain, Hash, URL)</li>
+<li>MITRE ATT&CK mapping & threat hunting</li>
+<li>Incident escalation & response workflows</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>⚡ What I Bring</h3>
+<ul>
+<li>Hands-on experience in Splunk & Sentinel</li>
+<li>Strong log analysis (Windows, Linux, Firewall)</li>
+<li>Automation mindset to improve SOC efficiency</li>
+<li>Understanding of IAM & privileged access risks</li>
+<li>Clear documentation & investigation reporting</li>
+</ul>
+</div>
+
+</div>
+
 </div>
 
 <!-- SKILLS -->
 <div id="skills" class="section">
 <h3>🛠 Skills</h3>
-
 <div class="card">
-<h4>SIEM & Monitoring</h4>
 <ul>
-<li>Splunk Enterprise / ES (Log ingestion, SPL queries, dashboards)</li>
-<li>Microsoft Sentinel (Alert monitoring & investigation)</li>
-<li>Correlation rules & detection logic tuning</li>
-</ul>
-
-<h4>Threat Detection & Analysis</h4>
-<ul>
-<li>Phishing, Malware, Brute-force attack analysis</li>
-<li>IOC investigation (IP, Domain, Hash, URL)</li>
-<li>MITRE ATT&CK & Cyber Kill Chain mapping</li>
-</ul>
-
-<h4>Security Operations</h4>
-<ul>
-<li>Alert triage (True vs False positive validation)</li>
-<li>Incident response & escalation workflows</li>
-<li>SOC runbooks & documentation</li>
-</ul>
-
-<h4>Systems & Networking</h4>
-<ul>
-<li>Windows & Linux log analysis</li>
-<li>TCP/IP, DNS, DHCP, HTTP/S protocols</li>
-<li>Access control & privilege monitoring</li>
+<li><strong>SIEM:</strong> Splunk Enterprise / ES, Microsoft Sentinel</li>
+<li><strong>Detection:</strong> Phishing, Malware, Brute-force</li>
+<li><strong>Logs:</strong> Windows, Linux, Firewall</li>
+<li><strong>Frameworks:</strong> MITRE ATT&CK, Cyber Kill Chain</li>
+<li><strong>Networking:</strong> TCP/IP, DNS, HTTP/S</li>
 </ul>
 </div>
 </div>
@@ -164,14 +184,12 @@ Strong foundation in networking, Linux systems, and enterprise security tools.
 <!-- PROJECTS -->
 <div id="projects" class="section">
 <h3>📂 Projects</h3>
-
 <div class="card">
 <p><strong>SIEM Implementation Lab</strong></p>
 <ul>
-<li>Integrated Windows & Linux logs into Splunk using Universal Forwarder</li>
+<li>Integrated Windows & Linux logs into Splunk</li>
 <li>Configured inputs.conf & outputs.conf</li>
-<li>Enabled centralized monitoring and alert visibility</li>
-<li>Performed troubleshooting and log validation</li>
+<li>Validated ingestion & troubleshooting</li>
 </ul>
 </div>
 </div>
@@ -183,22 +201,21 @@ Strong foundation in networking, Linux systems, and enterprise security tools.
 <div class="card">
 <p><strong>Goldman Sachs – Cybersecurity Analyst</strong></p>
 <ul>
-<li>Monitored privileged access and identified anomalous activities</li>
-<li>Performed alert triage and escalated validated incidents</li>
-<li>Automated security ticket closure reducing manual effort</li>
-<li>Improved detection by refining correlation rules</li>
-<li>Conducted IOC analysis and access risk investigations</li>
+<li>Monitored privileged access & anomalous behavior</li>
+<li>Performed alert triage and escalations</li>
+<li>Improved detection through correlation tuning</li>
+<li>Automated workflows reducing manual effort</li>
 </ul>
 </div>
 
 <div class="card">
 <p><strong>Senior Technical Engineer</strong></p>
 <ul>
-<li>Handled 24x7 SOC alerts and investigations</li>
-<li>Supported endpoint security and identity platforms</li>
-<li>Performed patching, compliance checks, and system hardening</li>
+<li>Handled 24x7 SOC alerts</li>
+<li>Performed system hardening & patching</li>
 </ul>
 </div>
+
 </div>
 
 <!-- RESUME -->
@@ -214,8 +231,8 @@ Strong foundation in networking, Linux systems, and enterprise security tools.
 <!-- CONTACT -->
 <div id="contact" class="section">
 <h3>📞 Contact</h3>
-<div class="card">
 
+<div class="card">
 <div class="contact-item">
 <span id="email">madhubkote@gmail.com</span>
 <button onclick="copyText('email')">📋</button>
@@ -226,8 +243,8 @@ Strong foundation in networking, Linux systems, and enterprise security tools.
 LinkedIn Profile
 </a>
 </div>
-
 </div>
+
 </div>
 
 </div>
