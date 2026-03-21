@@ -284,6 +284,22 @@ function copyText(id, btn) {
     }, 1500);
 }
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("fade-in");
+});
 
+document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function(e) {
+        if (this.href && this.target !== "_blank") {
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            setTimeout(() => {
+                window.location = this.href;
+            }, 300);
+        }
+    });
+});
+</script>
 </body>
 </html>
